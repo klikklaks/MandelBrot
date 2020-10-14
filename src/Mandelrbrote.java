@@ -2,6 +2,7 @@
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.MemoryImageSource;
+import java.util.Stack;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -162,16 +163,30 @@ public class Mandelrbrote extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
+Stack<Double> steks=new Stack();
+double ano=0;
+double alidz=0;
+double bno=0;
+double blidz=0;
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
         int x=evt.getX();
+        double jano=x/500*Math.abs(ano-alidz)+ano;
+                
         int y=evt.getY();
+        double jbeno=y/500*Math.abs(bno-blidz)+bno;
+        steks.push(jano);
+        steks.push(jbeno);
         //int jano
         //int jbno
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel1MousePressed
 
     private void jPanel1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseReleased
+        int x=evt.getX();
+        double jalidz=x/500*Math.abs(ano-alidz)+ano;
+        int y=evt.getY();
+        double jbelidz=y/500*Math.abs(bno-blidz)+bno;
+        
         
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel1MouseReleased
@@ -189,9 +204,9 @@ public class Mandelrbrote extends javax.swing.JFrame {
         double blidz=Double.parseDouble(jTextField4.getText());
         for(int j=0; j<500; j++){
             for(int i=0; i<500; i++){
-            double creal=i*Math.abs(ano-alidz)/500+ano;
+            double creal=i*Math.abs(ano-alidz)/500+ano; //tas ir itkā a
             double avec=i*Math.abs(ano-alidz)/500+ano;
-            double cimag=bno+j*Math.abs(bno-blidz)/500;
+            double cimag=bno+j*Math.abs(bno-blidz)/500; //tas ir itkā b
             double bvec=bno+j*Math.abs(bno-blidz)/500;
             k=0;
             do{
