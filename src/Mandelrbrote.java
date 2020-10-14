@@ -48,18 +48,18 @@ public class Mandelrbrote extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setText("-1");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
 
-        jTextField2.setText("jTextField2");
+        jTextField2.setText("1");
 
-        jTextField3.setText("jTextField3");
+        jTextField3.setText("-1");
 
-        jTextField4.setText("jTextField4");
+        jTextField4.setText("1");
 
         jLabel1.setText("no");
 
@@ -203,9 +203,15 @@ public class Mandelrbrote extends javax.swing.JFrame {
                 k=k+1;
                 
             }while((k<100)&&(zmodulis<=10));
-            if(k>=100){pixels[u]=(255<<24)|(0<<16)|(255<<8)|0;
+            if(k>=100){pixels[u]=(255<<24)|(0<<16)|(0<<8)|0;
             }else{
-                pixels[u]=(255<<24)|(0<<16)|(0<<8)|255;
+               // if(k<20)&&(zmodulis<=10){
+                //pixels[u]=
+            //}  
+                int red=(k*10)%256;
+                int green=(k*10)%256;
+                
+                pixels[u]=(255<<24)|(red<<16)|(green<<8)|255;
 
             }
             u=u+1;
